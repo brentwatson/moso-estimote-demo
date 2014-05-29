@@ -8,6 +8,7 @@ import android.util.Log;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
+import com.estimote.sdk.Utils;
 
 import java.util.List;
 
@@ -29,6 +30,14 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onBeaconsDiscovered(Region region, List<Beacon> beacons) {
                 Log.d("EstimoteDemo", "Ranged beacons: " + beacons);
+
+                if(beacons != null){
+                    for(Beacon beacon : beacons){
+                        final Utils.Proximity proximity = Utils.computeProximity(beacon);
+                        Log.d("EstimoteDemo", "Proximity of " + beacon.getMajor() + " - " + beacon.getMinor() + " is: " + proximity);
+                        //Will be one of: Utils.Proximity.IMMEDIATE, NEAR, FAR, or UNKNOWN
+                    }
+                }
             }
         });
     }
