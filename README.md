@@ -2,12 +2,16 @@ moso-estimote-demo
 ==================
 
 Demo App for using Estimotes
+----------------------------
 
 First clone the project using:
 
 `git clone git@github.com:brentwatson/moso-estimote-demo.git`
 
+
+
 Switch to any of the folling branches to see various features in action:
+------------------------------------------------------------------------
 
 `git checkout 1-base-project` Basic "Hello World" Android Studio project.
 
