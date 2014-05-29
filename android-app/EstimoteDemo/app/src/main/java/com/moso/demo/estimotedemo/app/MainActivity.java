@@ -33,9 +33,8 @@ public class MainActivity extends ActionBarActivity {
 
                 if(beacons != null){
                     for(Beacon beacon : beacons){
-                        final Utils.Proximity proximity = Utils.computeProximity(beacon);
-                        Log.d("EstimoteDemo", "Proximity of " + beacon.getMajor() + " - " + beacon.getMinor() + " is: " + proximity);
-                        //Will be one of: Utils.Proximity.IMMEDIATE, NEAR, FAR, or UNKNOWN
+                        double meters = Utils.computeAccuracy(beacon);//JavaDocs: Returns distance in meters based on beacon's RSSI and measured power.
+                        Log.d("EstimoteDemo", "Proximity of " + beacon.getMajor() + " - " + beacon.getMinor() + " is: " + meters + " meters.");
                     }
                 }
             }
